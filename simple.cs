@@ -1,87 +1,59 @@
 using System;
-using System.Collections.Generic;
 
-public interface IVisitor
+// Visitor Interface
+public interface IAnimalVisitor
 {
-    void Visit(Book book);
-    void Visit(Fruit fruit);
+    void Visit(Dog dog);
+    void Visit(Cat cat);
 }
 
-public class PriceVisitor : IVisitor
+// Concrete Visitor
+public class SoundVisitor : IAnimalVisitor
 {
-    public void Visit(Book book)
+    public void Visit(Dog dog)
     {
-        Console.WriteLine($"Book price: {book.Price * 0.9} (10% discount)");
+        Console.WriteLine("Dog says: Woof!");
     }
 
-    public void Visit(Fruit fruit)
+    public void Visit(Cat cat)
     {
-        Console.WriteLine($"Fruit price: {fruit.Price * 0.95} (5% discount)");
+        Console.WriteLine("Cat says: Meow!");
     }
 }
 
-public interface IElement
+// Element Interface
+public interface IAnimal
 {
-    void Accept(IVisitor visitor);
+    void Accept(IAnimalVisitor visitor);
 }
 
-public class Book : IElement
+// Concrete Elements
+public class Dog : IAnimal
 {
-    public double Price { get; set; }
-
-    public Book(double price)
-    {
-        Price = price;
-    }
-
-    public void Accept(IVisitor visitor)
+    public void Accept(IAnimalVisitor visitor)
     {
         visitor.Visit(this);
     }
 }
 
-public class Fruit : IElement
+public class Cat : IAnimal
 {
-    public double Price { get; set; }
-
-    public Fruit(double price)
-    {
-        Price = price;
-    }
-
-    public void Accept(IVisitor visitor)
+    public void Accept(IAnimalVisitor visitor)
     {
         visitor.Visit(this);
     }
 }
 
-public class ShoppingCart
-{
-    private List<IElement> elements = new List<IElement>();
-
-    public void AddElement(IElement element)
-    {
-        elements.Add(element);
-    }
-
-    public void ApplyVisitor(IVisitor visitor)
-    {
-        foreach (var element in elements)
-        {
-            element.Accept(visitor);
-        }
-    }
-}
-
+// Client Code
 class Program
 {
     static void Main(string[] args)
     {
-        var cart = new ShoppingCart();
-        cart.AddElement(new Book(30));
-        cart.AddElement(new Fruit(15));
+        IAnimal dog = new Dog();
+        IAnimal cat = new Cat();
+        IAnimalVisitor soundVisitor = new SoundVisitor();
 
-        var priceVisitor = new PriceVisitor();
-        cart.ApplyVisitor(priceVisitor);
+        dog.Accept(soundVisitor); // Output: Dog says: Woof!
+        cat.Accept(soundVisitor); // Output: Cat says: Meow!
     }
 }
