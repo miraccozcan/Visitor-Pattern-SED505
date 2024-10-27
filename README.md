@@ -38,14 +38,17 @@ This diagram demonstrates how the Visitor Design Pattern works by separating the
     - Manages a collection of elements (`List<Element>`).
     - Iterates over elements and applies the visitor using the `accept()` method.
 
-## Simple Code (simple.cs) Output
-```Book price: 27.0 (10% discount)```
-```Fruit price: 14.25 (5% discount)```
+## Simple Code Example Output (simple.cs)
+```Dog says: Woof!```
+```Cat says: Meow!```
 
 ## Common Usage in the Software Industry
 - **Stable Structures with New Operations**: The Visitor pattern is used when object structures remain stable, but new functionality needs to be added over time.
 - **Compilers**: Nodes in a syntax tree are visited for operations like code generation and optimization.
 - **Document Processing Systems**: Used to apply operations like exporting to different formats (e.g., PDF, DOCX).
 
+## Main Code (main.cs) Output
+```Book price: 27.0 (10% discount)```
+```Fruit price: 14.25 (5% discount)```
 
 
