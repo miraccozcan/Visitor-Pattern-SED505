@@ -7,11 +7,10 @@
 The Visitor Pattern is a behavioral design pattern that enables you to add further operations to objects without altering their structure. It achieves this by separating the operations (behavior) from the object structure on which they operate. This pattern is particularly useful when you have a stable set of classes and want to define new functionalities independently, adhering to the Open/Closed Principle – classes should be open for extension but closed for modification. By leveraging the Visitor pattern, developers can add new operations to an object structure without modifying the classes involved, thus maintaining system stability and reducing code coupling.
 
 ## Key Concepts:
-1.
-Double Dispatch:
+1. Double Dispatch:
 The Visitor Pattern relies on double dispatch, allowing the operation to be selected based on both the visitor type and the element type being visited. This ensures the correct operation is applied to each element, despite them being of different types.
-2.
-  Decoupling Operations from Object Structure:
+
+2. Decoupling Operations from Object Structure:
 By decoupling the operations, the Visitor Pattern centralizes related behaviors in one place, preventing the need for object structure changes every time new functionality is introduced.
 ## Video Resources
 - [Visitor Pattern Explained - Gui Ferreira](https://www.youtube.com/watch?v=yyKrt7zSmv0&ab_channel=GuiFerreira)
