@@ -4,14 +4,26 @@
 **Behavioral Design Pattern**
 
 ## Introduction
-The Visitor pattern is a behavioral design pattern that allows you to define new operations on objects without changing the classes on which it operates. It separates the algorithm from the objects it works on by letting you place these new operations in a visitor object, which means that existing object structures can remain unchanged.
+The Visitor Pattern is a behavioral design pattern that enables you to add further operations to objects without altering their structure. It achieves this by separating the operations (behavior) from the object structure on which they operate. This pattern is particularly useful when you have a stable set of classes and want to define new functionalities independently, adhering to the Open/Closed Principle – classes should be open for extension but closed for modification. By leveraging the Visitor pattern, developers can add new operations to an object structure without modifying the classes involved, thus maintaining system stability and reducing code coupling.
 
+## Key Concepts:
+1.
+Double Dispatch:
+The Visitor Pattern relies on double dispatch, allowing the operation to be selected based on both the visitor type and the element type being visited. This ensures the correct operation is applied to each element, despite them being of different types.
+2.
+  Decoupling Operations from Object Structure:
+By decoupling the operations, the Visitor Pattern centralizes related behaviors in one place, preventing the need for object structure changes every time new functionality is introduced.
 ## Video Resources
 - [Visitor Pattern Explained - Gui Ferreira](https://www.youtube.com/watch?v=yyKrt7zSmv0&ab_channel=GuiFerreira)
 - [Visitor Pattern - git-amend](https://www.youtube.com/watch?v=Q2gQs6gIzCM&ab_channel=git-amend)
 
 ## Rationale
-The main rationale behind the Visitor pattern is to allow for the extension of an object’s behavior without modifying the object itself. This is particularly useful when the object structure is stable, but new functionality needs to be added frequently. Instead of adding many new methods to these objects, which can clutter the class design, the Visitor pattern centralizes the logic in a separate visitor class. This keeps the object model clean and adheres to the open/closed principle, where objects are open for extension but closed for modification.
+The Visitor Pattern allows for new functionality to be added to an object structure without altering the structure itself. This is especially beneficial when the object structure is stable but new functionality is frequently added. For example, in a software system with many types of documents, the Visitor Pattern can be used to perform operations like exporting to PDF, DOCX, or CSV formats. By encapsulating each operation within a visitor, the pattern:
+
+Reduces Coupling: The Visitor Pattern centralizes operations, making it easier to maintain and update the functionality independently of the object structure.
+Enhances Extensibility: New operations can be introduced without modifying the objects they operate on, keeping the original classes clean and focused on their core functionality.
+Adheres to SOLID Principles: The Visitor Pattern follows the Single Responsibility Principle (by separating operations) and Open/Closed Principle (by allowing extension without modification).
+
 
 ## UML Diagram
 This diagram demonstrates how the Visitor Design Pattern works by separating the behavior (operations) from the objects themselves. It allows you to define new operations on a set of elements without modifying the elements' classes. Instead, you introduce new visitors that contain the behavior.
